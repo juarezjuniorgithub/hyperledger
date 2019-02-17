@@ -1,0 +1,58 @@
+name: partorg1
+x-type: hlfv1
+description: 'The connection profile of OBP instance'
+version: '1.0'
+client:
+  organization: partorg1
+  credentialStore:
+    path: /tmp/hfc-kvs
+    cryptoStore:
+      path: /tmp/hfc-cvs
+organizations:
+  partorg1:
+    mspid: partorg1
+    peers:
+      - partorg11peer0
+      - partorg12peer0
+    adminPrivateKey:
+      path: ../artifacts/crypto/peerOrganizations/partorg1/keystore/partorg1-key.pem
+    signedCert:
+      path: ../artifacts/crypto/peerOrganizations/partorg1/signcert/partorg1-signcert.pem
+orderers:
+  bcsnet0:
+    url: 'grpcs://0A411C83AF9846AD8A468486E8AF231E-mgmt.blockchain.ocp.oraclecloud.com:7301'
+    grpcOptions:
+      ssl-target-name-override: 0A411C83AF9846AD8A468486E8AF231E-mgmt.blockchain.ocp.oraclecloud.com
+      grpc-max-send-message-length: 15
+    tlsCACerts:
+      path: ../artifacts/crypto/ordererOrganizations/bcsnet/tlscacert/bcsnet-tlscacert.pem
+peers:
+  partorg11peer0:
+    url: 'grpcs://BB830C27867D472781312CC55CB27273-mgmt.blockchain.ocp.oraclecloud.com:7100'
+    eventUrl: 'grpcs://BB830C27867D472781312CC55CB27273-mgmt.blockchain.ocp.oraclecloud.com:7101'
+    grpcOptions:
+      ssl-target-name-override: BB830C27867D472781312CC55CB27273-mgmt.blockchain.ocp.oraclecloud.com
+      grpc-max-send-message-length: 15
+    tlsCACerts:
+      path: ../artifacts/crypto/peerOrganizations/partorg1/tlscacert/partorg1-tlscacert.pem
+  partorg12peer0:
+    url: 'grpcs://BB830C27867D472781312CC55CB27273-mgmt.blockchain.ocp.oraclecloud.com:7116'
+    eventUrl: 'grpcs://BB830C27867D472781312CC55CB27273-mgmt.blockchain.ocp.oraclecloud.com:7117'
+    grpcOptions:
+      ssl-target-name-override: BB830C27867D472781312CC55CB27273-mgmt.blockchain.ocp.oraclecloud.com
+      grpc-max-send-message-length: 15
+    tlsCACerts:
+      path: ../artifacts/crypto/peerOrganizations/partorg1/tlscacert/partorg1-tlscacert.pem
+RESTProxies:
+  partorg1restproxy1:
+    url: 'https://BB830C27867D472781312CC55CB27273.blockchain.ocp.oraclecloud.com:443/restproxy1'
+    channels: {}
+  partorg1restproxy2:
+    url: 'https://BB830C27867D472781312CC55CB27273.blockchain.ocp.oraclecloud.com:443/restproxy2'
+    channels: {}
+  partorg1restproxy3:
+    url: 'https://BB830C27867D472781312CC55CB27273.blockchain.ocp.oraclecloud.com:443/restproxy3'
+    channels: {}
+  partorg1restproxy4:
+    url: 'https://BB830C27867D472781312CC55CB27273.blockchain.ocp.oraclecloud.com:443/restproxy4'
+    channels: {}
