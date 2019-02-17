@@ -1,0 +1,48 @@
+
+https://<CLOUD_SERVER_IP_ADDRESS>/psmui/faces/paasRunner.jspx?serviceType=OABCSINST
+
+"args":["med1000000", "meditronics", "Reveal LINQ", "41.40338, 2.17403", "1502688979", "000000", "HSE", "true", "1502688979"]
+
+---
+
+type medicalDevice struct {
+	ObjectType         string `json:"docType"`       
+	DeviceNumber       string `json:"deviceNumber"` 
+	Manufacturer       string `json:"manufacturer"`
+	Model              string `json:"model"`
+	LocationData       string `json:"locationData"`
+	AssemblyDate       string    `json:"assemblyDate"`
+	DeviceSerialNumber string `json:"deviceSerialNumber"`
+	Owner              string `json:"owner"`  
+	Active             string   `json:"active"`     
+	DecomissionDate    string    `json:"decomissionDate"`
+}
+
+---
+
+REST CALLS WITH CURL - https://curl.haxx.se/ - OR USE POSTMAN (https://www.getpostman.com/)
+
+# AUTH IS HTTP BASIC (EXAMPLE PURPOSES ONLY - DO NOT USE IN PRODUCTION)
+CHECK ORACLE BLOCKCHAIN PLATFORM VERSION
+
+curl -u <USERNAME:PASSWORD> -X GET https://7B6551B4717C4825AC61471B09559DA9.blockchain.ocp.oraclecloud.com:443/restproxy1/bcsgw/rest/version
+
+---
+
+# AUTH IS HTTP BASIC (EXAMPLE PURPOSES ONLY - DO NOT USE IN PRODUCTION)
+# Transaction - ADD MEDICAL DEVICE
+
+curl -u <USERNAME:PASSWORD> -H "Content-type:application/json" -X POST https://7B6551B4717C4825AC61471B09559DA9.blockchain.ocp.oraclecloud.com:443/restproxy1/bcsgw/rest/v1/transaction/invocation -d '{"channel":"default","chaincode":"hse_bc_01","method":"initMedicalDevice","args":["med1000000", "meditronics", "Reveal LINQ", "41.40338, 2.17403", "1502688979", "000000", "HSE", "true", "1502688979"],"chaincodeVer":"v1"}'
+curl -u <USERNAME:PASSWORD> -H "Content-type:application/json" -X POST https://7B6551B4717C4825AC61471B09559DA9.blockchain.ocp.oraclecloud.com:443/restproxy1/bcsgw/rest/v1/transaction/invocation -d '{"channel":"default","chaincode":"hse_bc_01","method":"initMedicalDevice","args":["med1000001", "meditronics", "Reveal LINQ", "41.40338, 2.17403", "1502688979", "000000", "HSE", "true", "1502688979"],"chaincodeVer":"v1"}'
+curl -u <USERNAME:PASSWORD> -H "Content-type:application/json" -X POST https://7B6551B4717C4825AC61471B09559DA9.blockchain.ocp.oraclecloud.com:443/restproxy1/bcsgw/rest/v1/transaction/invocation -d '{"channel":"default","chaincode":"hse_bc_01","method":"initMedicalDevice","args":["med1000002", "meditronics", "Reveal LINQ", "41.40338, 2.17403", "1502688979", "000000", "HSE", "true", "1502688979"],"chaincodeVer":"v1"}'
+curl -u <USERNAME:PASSWORD> -H "Content-type:application/json" -X POST https://7B6551B4717C4825AC61471B09559DA9.blockchain.ocp.oraclecloud.com:443/restproxy1/bcsgw/rest/v1/transaction/invocation -d '{"channel":"default","chaincode":"hse_bc_01","method":"initMedicalDevice","args":["med1000003", "meditronics", "Reveal LINQ", "41.40338, 2.17403", "1502688979", "000000", "HSE", "true", "1502688979"],"chaincodeVer":"v1"}'
+
+---
+
+# AUTH IS HTTP BASIC (EXAMPLE PURPOSES ONLY - DO NOT USE IN PRODUCTION)
+# Transaction - READ MEDICAL DEVICE FROM THE BLOCKCHAIN
+
+curl -u <USERNAME:PASSWORD> -H "Content-type:application/json" -X POST https://7B6551B4717C4825AC61471B09559DA9.blockchain.ocp.oraclecloud.com:443/restproxy1/bcsgw/rest/v1/transaction/query -d '{"channel":"default","chaincode":"hse_bc_01","method":"readMedicalDevice","args":["med1000001"],"chaincodeVer":"v1"}'
+curl -u <USERNAME:PASSWORD> -H "Content-type:application/json" -X POST https://7B6551B4717C4825AC61471B09559DA9.blockchain.ocp.oraclecloud.com:443/restproxy1/bcsgw/rest/v1/transaction/query -d '{"channel":"default","chaincode":"hse_bc_01","method":"readMedicalDevice","args":["med1000002"],"chaincodeVer":"v1"}'
+
+
