@@ -1,0 +1,154 @@
+{
+    "obcs": {
+        "orderers": [
+            {
+                "id": "detroitautom1orderer0",
+                "mspID": "detroitautom",
+                "url": "grpc://oc-10-90-91-127.nat-den13.oraclecorp.com:7301",
+                "keystoreFilepath": "artifacts/crypto/orderer/keystore/detroitautom-key.pem",
+                "signcertFilepath": "artifacts/crypto/orderer/signcert/detroitautom-signcert.pem",
+                "admincertFilepath": "artifacts/crypto/orderer/admincert/detroitautom-admincert.pem",
+                "cacertFilepath": "artifacts/crypto/orderer/cacert/detroitautom-cacert.pem",
+                "tlscacertFilepath": "artifacts/crypto/orderer/thirdtls/detroitautom-tlscacert.pem"
+            }
+        ],
+        "detroitautom": {
+            "name": "detroitautom",
+            "mspID": "detroitautom",
+            "keystoreFilepath": "artifacts/crypto/peer/keystore/detroitautom-key.pem",
+            "signcertFilepath": "artifacts/crypto/peer/signcert/detroitautom-signcert.pem",
+            "admincertFilepath": "artifacts/crypto/peer/admincert/detroitautom-admincert.pem",
+            "cacertFilepath": "artifacts/crypto/peer/cacert/detroitautom-cacert.pem",
+            "peers": [
+                {
+                    "id": "detroitautom1peer0",
+                    "url": "grpc://oc-10-90-91-127.nat-den13.oraclecorp.com:7100",
+                    "eventUrl": "grpc://oc-10-90-91-127.nat-den13.oraclecorp.com:7101",
+                    "tlscacertFilepath": "artifacts/crypto/peer/thirdtls/detroitautom-tlscacert.pem"
+                },
+                {
+                    "id": "detroitautom1peer1",
+                    "url": "grpc://oc-10-90-91-127.nat-den13.oraclecorp.com:7102",
+                    "eventUrl": "grpc://oc-10-90-91-127.nat-den13.oraclecorp.com:7103",
+                    "tlscacertFilepath": "artifacts/crypto/peer/thirdtls/detroitautom-tlscacert.pem"
+                },
+                {
+                    "id": "detroitautom1peer2",
+                    "url": "grpc://oc-10-90-91-127.nat-den13.oraclecorp.com:7104",
+                    "eventUrl": "grpc://oc-10-90-91-127.nat-den13.oraclecorp.com:7105",
+                    "tlscacertFilepath": "artifacts/crypto/peer/thirdtls/detroitautom-tlscacert.pem"
+                },
+                {
+                    "id": "detroitautom1peer3",
+                    "url": "grpc://oc-10-90-91-127.nat-den13.oraclecorp.com:7106",
+                    "eventUrl": "grpc://oc-10-90-91-127.nat-den13.oraclecorp.com:7107",
+                    "tlscacertFilepath": "artifacts/crypto/peer/thirdtls/detroitautom-tlscacert.pem"
+                },
+                {
+                    "id": "detroitautom1peer4",
+                    "url": "grpc://oc-10-90-91-127.nat-den13.oraclecorp.com:7108",
+                    "eventUrl": "grpc://oc-10-90-91-127.nat-den13.oraclecorp.com:7109",
+                    "tlscacertFilepath": "artifacts/crypto/peer/thirdtls/detroitautom-tlscacert.pem"
+                },
+                {
+                    "id": "detroitautom1peer5",
+                    "url": "grpc://oc-10-90-91-127.nat-den13.oraclecorp.com:7110",
+                    "eventUrl": "grpc://oc-10-90-91-127.nat-den13.oraclecorp.com:7111",
+                    "tlscacertFilepath": "artifacts/crypto/peer/thirdtls/detroitautom-tlscacert.pem"
+                },
+                {
+                    "id": "detroitautom2peer0",
+                    "url": "grpc://oc-10-90-91-22.nat-den13.oraclecorp.com:7100",
+                    "eventUrl": "grpc://oc-10-90-91-22.nat-den13.oraclecorp.com:7101",
+                    "tlscacertFilepath": "artifacts/crypto/peer/thirdtls/detroitautom-tlscacert.pem"
+                },
+                {
+                    "id": "detroitautom2peer1",
+                    "url": "grpc://oc-10-90-91-22.nat-den13.oraclecorp.com:7102",
+                    "eventUrl": "grpc://oc-10-90-91-22.nat-den13.oraclecorp.com:7103",
+                    "tlscacertFilepath": "artifacts/crypto/peer/thirdtls/detroitautom-tlscacert.pem"
+                }
+            ],
+            "RESTProxies": [
+                {
+                    "id": "detroitautomrestproxy1",
+                    "url": "https://detroitautommanager-bcsdev.uscom-central-1.c9dev1.oc9qadev.com:443",
+                    "channels": [
+                        {
+                            "name": "default",
+                            "chaincodes": [
+                                {
+                                    "name": "obcs-example02"
+                                },
+                                {
+                                    "name": "obcs-cardealer"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "detroitautomrestproxy2",
+                    "url": "https://detroitautommanager-bcsdev.uscom-central-1.c9dev1.oc9qadev.com:443",
+                    "channels": [
+                        {
+                            "name": "default",
+                            "chaincodes": [
+                                {
+                                    "name": "buyapart"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "jilldealer",
+                            "chaincodes": [
+                                {
+                                    "name": "obcs-cardealer"
+                                },
+                                {
+                                    "name": "end2end"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "dealertrade",
+                            "chaincodes": [
+                                {
+                                    "name": "obcs-cardealer"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "detroitautomrestproxy3",
+                    "url": "https://detroitautommanager-bcsdev.uscom-central-1.c9dev1.oc9qadev.com:443",
+                    "channels": [
+                        {
+                            "name": "",
+                            "chaincodes": [
+                                {
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "detroitautomrestproxy4",
+                    "url": "https://detroitautommanager-bcsdev.uscom-central-1.c9dev1.oc9qadev.com:443",
+                    "channels": [
+                        {
+                            "name": "",
+                            "chaincodes": [
+                                {
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
